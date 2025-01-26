@@ -1,0 +1,13 @@
+.product {
+ display: flex;
+ justify-content: space-between;
+}
+.product-item {
+ width: 21%;
+ position: relative;
+ padding-top: 76px;
+ overflow: hidden;
+}
+.cont {
+ background-color: #F2EDE9;
+}

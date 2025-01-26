@@ -1,0 +1,262 @@
+.product {
+ display: flex;
+ justify-content: space-between;
+}
+.product-item {
+ width: 100%;
+ position: relative;
+ padding-top: 87px;
+ overflow: hidden;
+}
+.product-item:not(:hover) .ingredients, .product-item:not(:hover) .types{
+ display: none;
+}
+.img-cont {
+ position: absolute;
+ top: 0;
+ z-index: 5;
+}
+.product-item-cont {
+ background-color: white;
+ padding: 15px;
+ border-radius: 30px;
+ padding-top: 233px;
+ position: relative;
+ height: 154px;
+}
+.product .img-cont {
+ width: 100%;
+ position: absolute;
+ left: 0;
+ right: 0;
+ top: 0;
+ z-index: 5;
+}
+.product-item img {
+ width: 93%;
+ margin: auto;
+ display: block;
+ margin-left: 12px;
+}
+.cont{
+ background-color: #FAF6F3;
+ height: 100vh;
+}
+
+.btn-price {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border-radius: 35px;
+ transition: all 0.25s ease;
+}
+.btn-price button {
+ background-color: #FFBD2D;
+ padding: 7px 14px;
+ border-radius: 29px;
+ border: none;
+ transition: all 0.25s ease;
+}
+.btn-price  b {
+ font-size: 14px;
+ margin-right: 14px;
+ border: 1px solid #ffffff;
+}
+.product-item:hover .btn-price button {
+ color: #b97566;
+ background-color: white;
+ /* padding: 0 14px; */
+}
+.product-item:hover .btn-price {
+ border: 1px solid #b97566;
+ /* padding: 7px 0; */
+ 
+}
+.product-item:hover .add-info {
+visibility: visible;
+height: 102px;
+}
+.add-info {
+ visibility: hidden;
+ transition: all 0.25s ease;
+ height: 0;
+}
+.product-item-text p {
+ font-size: 14px;
+ margin:3px 0 14px;
+ color: #888786;
+}
+.product-item:hover .product-item-text p {
+ font-size: 12px;
+ margin: 0px 0 7px;
+ color: #000000;
+ line-height: 13.5px;
+}
+.product-item:hover h4 {
+ margin-top: 5px;
+}
+.product-item-text1 {
+ opacity: 0;
+}
+.product-item-text2 {
+ position: absolute;
+ z-index: 15;
+ bottom: 0;
+ left: 15px;
+ right: 15px;
+ background-color: #ffffff8f;
+ backdrop-filter: blur(10px);
+ border-radius: 15px;
+}
+.product-item-text p {
+ font-size: 13px;
+ margin: 3px 0 7px;
+ color: #7F7D7C;
+}
+select[name="types"], select[name="ingredients"] {
+ width: 100%;
+ border-radius: 15px;
+ padding: 4px;
+ font-weight: 500;
+ background-color: #FFBD0D;
+ border: none;
+}
+select[name="types"] {
+ background-color: white;
+ border: 1px solid gray;
+ margin-bottom: 7px;
+}
+/* Hide the radio buttons visually */
+input[type="radio"] {
+ appearance: none; /* Removes default styling */
+ -webkit-appearance: none; /* For WebKit browsers */
+ -moz-appearance: none; /* For Firefox */
+ outline: none;
+ position: absolute; /* Hide radio button but keep it functional */
+}
+
+/* Style the labels */
+label {
+ display: inline-block;
+ padding: 5px 11px;
+ border: 1px solid #ccc;
+ border-radius: 26px;
+ cursor: pointer;
+ background-color: #FFBE0E;
+ transition: background-color 0.3s ease, color 0.3s ease;
+ border: none;
+}
+
+/* Change the label background color when the associated input is checked */
+input[type="radio"]:checked button label {
+ background-color: #FE3B02; /* Highlight the checked label */
+ color: white; /* Optional: Change text color */
+}
+.sizebtn {
+ padding: 5px 19px;
+ background-color: #ffbd0d;
+ transition: all 0.25s ease;
+}
+.active {
+ background-color: #FE3B02;
+}
+.pizza-size {
+ display: flex;
+ justify-content: space-between;
+ margin: 7px 0;
+}
+
+.btn-price-cont {
+ background-color: white;
+ z-index: 15;
+ position: sticky;
+ padding-bottom: 15px;
+}
+
+button {
+ border-radius: 50px;
+ border: none;
+}
+.ingredient-btn {
+ background-color: #ffbd0d;
+ padding: 6px 12px;
+ width: 100%;
+ text-align: left;
+}
+
+.ingredients[_ngcontent-ng-c3996693106] {
+ position: absolute;
+ left: 0;
+ right: 0;
+ z-index: 150;
+ height: 112px;
+ overflow-y: scroll;
+ border-radius: 8px;
+ background-color: #fff0f0;
+}
+.ingredient-cont {
+ position: relative;
+}
+.ingredients label {
+ width: 100%;
+ border-radius: 0;
+ font-size: 13px;
+ background-color: transparent;
+ display: flex;
+}
+.ingredients label input {
+ margin-right: 7px;
+}
+.ingredients::-webkit-scrollbar {
+ width: 8px; /* Ширина скроллбара */
+}
+
+.ingredients::-webkit-scrollbar-thumb {
+ background-color: #ffbd0d; /* Цвет ползунка */
+ border-radius: 4px; /* Закругление ползунка */
+ border: 2px solid #fff0f0; /* Внешняя обводка ползунка для создания эффекта "врезанности" */
+}
+
+.ingredients::-webkit-scrollbar-thumb:hover {
+ background-color: #ffa700; /* Цвет ползунка при наведении */
+}
+
+.ingredients::-webkit-scrollbar-track {
+ background-color: #ffe0e0; /* Цвет дорожки */
+ border-radius: 4px; /* Закругление дорожки */
+}
+
+.ingredients::-webkit-scrollbar-track:hover {
+ background-color: #ffdada; /* Цвет дорожки при наведении */
+}
+
+
+.ingredients .checkbox {
+ background-color: transparent;
+ padding: 2.5px 5px 2.5px 10px;
+ font-size: 14px;
+ transition: all 0.075s ease-in;
+}
+.ingredients {
+ background-color: #fff7f7;
+ height: 105px;
+ overflow-y: scroll;
+ border-radius: 10px;
+ z-index: 140;
+ position: absolute;
+ left: 0;
+ right: 0;
+}
+.ingredient-cont {
+ position: relative;
+}
+.active-checkbox {
+ background-color: #e4d9bd !important;
+ border-radius: 15px;
+}
+.checkbox:hover {
+ background-color: #fbf4e4 !important;
+}
+h4 {
+ color: #181717;
+}

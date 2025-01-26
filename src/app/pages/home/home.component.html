@@ -1,0 +1,53 @@
+<div class="cont">
+  <div class="container">
+    <div class="product">
+      <!-- <div class="product-item">
+        <div class="img-cont">
+          <img src="https://media.dodostatic.com/image/r:584x584/11ee93ce39230f13932429423973e349.avif" alt="">
+        </div>
+        <div class="product-item-cont">
+      
+      
+      <div class="product-item-text product-item-text2">
+        <h4>Пицца Жюльен</h4>
+        <p>
+          Цыпленок, шампиньоны, ароматный грибной соус, лук, сухой чеснок, моцарелла
+        </p>
+        <div class="add-info">
+          <select name="ingredients">
+            <option value="1">Сочные ананасы</option>
+            <option value="2">Хрустящий бекон</option>
+          </select>
+          <div class="pizza-size">
+            <input type="radio" id="size-20" name="pizza-size" value="20">
+            <label for="size-20">20см</label>
+          
+            <input type="radio" checked id="size-28" name="pizza-size" value="28">
+            <label for="size-28">28см</label>
+          
+            <input type="radio" id="size-33" name="pizza-size" value="33">
+            <label for="size-33">33см</label>
+          </div>
+          <select name="types">
+            <option value="1">классичиское</option>
+            <option value="2">тонкое</option>
+          </select>
+        </div>
+        <div class="btn-price-cont">
+          <div class="btn-price">
+            <button>Выбрать</button>
+            <b>от 648₽</b>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div> -->
+<!-- <div *ngFor="let product of pizzas">
+  <app-pizza-item></app-pizza-item>
+</div> -->
+
+  <app-pizza-item class="product-item" *ngFor="let product of pizzas" [pizza]="product"></app-pizza-item>
+
+    </div>
+  </div>
+</div>

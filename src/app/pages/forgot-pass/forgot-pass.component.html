@@ -1,0 +1,17 @@
+<div class="forgot-pass">
+ <div class="container">
+  <h1>Request for password reset code.</h1>
+  <form  [formGroup]="forgotPassForm" (ngSubmit)="onSubmit()">
+   <label for="forgotEmail">Enter your email address to receive the code.</label>
+   <input type="email" id="forgotEmail"  autocomplete="username" formControlName="email" placeholder="Enter your email" >
+   <div *ngIf="forgotPassForm.get('email')?.invalid && forgotPassForm.get('email')?.dirty">
+    <small style="color: red;">Email is required and must be a valid email address.</small>
+  </div>
+  <button type="submit" [disabled]="forgotPassForm.invalid">
+   <span #buttonText>Request code</span>
+   <img src="/assets/loading.gif" #loadingGif style="display: none;">
+ </button>
+  </form>
+  
+ </div>
+</div>

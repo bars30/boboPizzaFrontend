@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ /* font-family: sans-serif; */
+ font-family: 'Nunito';
+}
+h1, h2, h3, h4, h5, h6 {
+ color: #333333;
+}
+
+
+.container {
+ width: 80%; 
+ margin: auto;
+ padding: 15px 0;
+}
+
+.site-header img {
+ max-height: 75px;
+ display: block;
+ margin: auto;
+ border-radius: 9px;
+}
+.site-header {
+ width: 90%;
+ margin: auto;
+ padding-top: 15px;
+}
+
+
+
+
+
+
+
+
+

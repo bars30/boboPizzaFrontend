@@ -1,0 +1,71 @@
+.popup_container {
+ background-color: white;
+ width: 65%;
+ margin: 45px auto;
+ padding: 25px;
+ border-radius: 15px;
+}
+label {
+ display: block;
+ margin: 5px 0;
+}
+select {
+ width: 181px;
+ height: 28px;
+ border-radius: 7px;
+}
+.input-cont {
+ display: flex;
+ justify-content: flex-start;
+ margin-bottom: 15px;
+}
+.input-cont  input, .input-cont  select {
+ width: 80%;
+}
+.input-cont  label {
+ width: 20%;
+}
+h2 {
+ text-align: center;
+ margin-bottom: 25px;
+}
+
+.gender-cont .input-cont {
+ width: 50%;
+}
+.gender-cont {
+ display: flex;
+}
+.gender-cont .input-cont select {
+ width: 75%;
+}
+.gender-cont .input-cont label {
+ width: 23%;
+}
+textarea {
+ width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+.checkbox {
+ display: flex;
+ background-color: #f0f1ef;
+ width: fit-content;
+ padding: 8px 15px;
+ border-radius: 36px;
+ margin: 0 10px 10px;
+}
+.checkbox-cont {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+
+
+
+
+
+
+

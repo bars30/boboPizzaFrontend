@@ -1,0 +1,116 @@
+<!-- <div class="product-item">
+ <div class="img-cont">
+   <img src="https://media.dodostatic.com/image/r:584x584/11ee93ce39230f13932429423973e349.avif" alt="">
+ </div>
+ <div class="product-item-cont">
+
+
+<div class="product-item-text product-item-text2">
+ <h4>Пицца Жюльен</h4>
+ <p>
+   Цыпленок, шампиньоны, ароматный грибной соус, лук, сухой чеснок, моцарелла
+ </p>
+ <div class="add-info">
+   <select name="ingredients">
+     <option value="1">Сочные ананасы</option>
+     <option value="2">Хрустящий бекон</option>
+   </select>
+   <div class="pizza-size">
+     <input type="radio" id="size-20" name="pizza-size" value="20">
+     <label for="size-20">20см</label>
+   
+     <input type="radio" checked id="size-28" name="pizza-size" value="28">
+     <label for="size-28">28см</label>
+   
+     <input type="radio" id="size-33" name="pizza-size" value="33">
+     <label for="size-33">33см</label>
+   </div>
+   <select name="types">
+     <option value="1">классичиское</option>
+     <option value="2">тонкое</option>
+   </select>
+ </div>
+ <div class="btn-price-cont">
+   <div class="btn-price">
+     <button>Выбрать</button>
+     <b>от 648₽</b>
+   </div>
+ </div>
+</div>
+</div>
+</div> -->
+
+<div class="product-item" (mouseleave)="mouseover()">
+ <div class="img-cont">
+   <img [src]="pizza.variations[0].image_url" alt="">
+ </div>
+ <div class="product-item-cont">
+
+
+<div class="product-item-text product-item-text2"  >
+ <h4>{{pizza.name}}</h4>
+ <p>
+  {{ingredients}}
+ </p>
+ <div class="add-info">
+   <!-- <select name="ingredients">
+     <option value="1">Сочные ананасы</option>
+     <option value="2">Хрустящий бекон</option>
+   </select> -->
+   <!-- <select name="ingredients" [(ngModel)]="selectedIngredients" multiple>
+    <option *ngFor="let ingredient of pizza.ingredients" [value]="ingredient.id">
+      {{ingredient.name}}
+    </option>
+  </select> -->
+<!-- 
+<div class="ingredients-cont">
+  <button class="ingredient-btn" (click)="showIngredients = !showIngredients">Ингредиенты</button>
+  <div class="ingredients" *ngIf="showIngredients" >
+    <label *ngFor="let ingredient of pizza.ingredients">
+      <input 
+        type="checkbox" 
+        [value]="ingredient.id">
+      {{ ingredient.name }}
+    </label>
+  </div>
+</div> -->
+  
+
+<div class="ingredients-cont" *ngIf="this.pizza.ingredients.length > 0" >
+  <button class="ingredient-btn" (click)="showIngredients = !showIngredients">Ингредиенты</button>
+  <div class="ingredients" *ngIf="showIngredients" >
+    <div *ngFor="let ingredient of pizza.ingredients" (click)="onIngredientChange(ingredient.id)">
+      <div
+      [ngClass]="{'active-checkbox': this.selectedIngredients.includes(ingredient.id), checkbox: true}"
+      >
+      {{ ingredient.name }}
+      </div>
+        <!-- [value]="ingredient.id"> -->
+      
+    </div>
+  </div>
+</div>
+
+  
+   <div  class="pizza-size">
+    <div *ngFor="let variation of availablePizzas">
+     <button [ngClass]="{'active': variation.size_cm == selectedSize && variation.is_available, sizebtn: true}" (click)="changeSize(variation.size_cm)" [disabled]="!variation.is_available">{{variation.size_cm}}</button>
+    </div>
+   </div>
+   <!-- <button (click)="logAnything()">Log anything</button> -->
+  
+  
+   <select class="types" name="types" [(ngModel)]="selectedType" (change)="changeSelectedType()">
+     <option value="традиционное">традиционное</option>
+     <option value="тонкое">тонкое</option>
+   </select>
+ </div>
+ <div class="btn-price-cont">
+   <div class="btn-price">
+     <button>Выбрать</button>
+     <b>от {{pizza.variations[0].price}}₽</b>
+   </div>
+ </div>
+</div>
+</div>
+</div>

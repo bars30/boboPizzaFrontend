@@ -1,0 +1,78 @@
+CREATE TABLE interests (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL 
+);
+
+INSERT INTO interests (name) 
+VALUES 
+('Lying on the beach'),
+('Camping'),
+('Dancing'),
+('Fishing & Hunting'),
+('Hockey'),
+('Music & Concerts'),
+('Sailing'),
+('Travelling'),
+('Biking'),
+('Cars'),
+('Diving'),
+('Games'),
+('Movies'),
+('Nature'),
+('Shopping'),
+('Watch TV'),
+('Reading books'),
+('Cooking'),
+('Fashion'),
+('Hobbies & Crafts'),
+('Museums & Arts'),
+('Party & Night Club'),
+('Sports'),
+('Meditation & Yoga');
+
+
+
+🔥🔥🔥🔥🔥🔥
+
+-- Add new columns
+ALTER TABLE users
+ADD COLUMN name_or_nickname VARCHAR(100),
+ADD COLUMN gender VARCHAR(10) CHECK (gender IN ('male', 'female')),
+ADD COLUMN seeking VARCHAR(20) CHECK (seeking IN ('male', 'female', 'both')),
+ADD COLUMN birthday DATE,
+ADD COLUMN hometown VARCHAR(100),
+ADD COLUMN details TEXT,
+ADD COLUMN ideal_partner TEXT,
+ADD COLUMN profile_photo VARCHAR(255);
+
+-- The 'created_at' column already exists in your current table, so no need to add it again.
+
+
+🔥🔥🔥🔥🔥🔥
+
+CREATE TABLE user_interests (
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    interest_id INT REFERENCES interests(id) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, interest_id)
+);
+
+🔥🔥🔥
+
+
+ALTER TABLE users
+ADD COLUMN popupInfo BOOLEAN DEFAULT true;
+
+🔥🔥🔥🔥🔥🔥
+🍁🍁🍁🍁🍁🍁
+🔥🔥🔥🔥🔥🔥
+
+
+
+
+
+
+
+
+
+
+
