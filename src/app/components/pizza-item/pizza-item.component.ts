@@ -13,10 +13,13 @@ export class PizzaItemComponent {
   @Input() pizza: any;
   ingredients: string = '';
   selectedSize = 30;
-  selectedType = "тонкое"; //традиционное
+  selectedType = "традиционное"; //традиционное
   availablePizzas: any[] = [];
   selectedIngredients: number[] = [];
   showIngredients: boolean = false;
+  pizzaVariationPrice: number = 0;
+  ingredientsPrice = 0;
+  totalPrice = this.pizzaVariationPrice + this.ingredientsPrice;
 
   constructor() {
     console.log(this.pizza);
@@ -72,11 +75,22 @@ export class PizzaItemComponent {
     }
     console.log("🪇",this.selectedSize);
     console.log(45545);
-    
+    this.findVariationPrice()
   }
+
+  findVariationPrice(){
+    console.log("this.selectedSize --> ",this.selectedSize);
+    console.log("this.selectedType --> ",this.selectedType);
+    console.log("this.availablePizzas --> ",this.availablePizzas);
+    console.log(this.availablePizzas.find((item: any) => item.size_cm == this.selectedSize).price);
+    this.pizzaVariationPrice = parseFloat(this.availablePizzas.find((item: any) => item.size_cm == this.selectedSize).price);
+    this.totalPrice = this.pizzaVariationPrice + this.ingredientsPrice;
+  }
+
   changeSize(size: number){
     this.selectedSize = size;
     console.log(size);
+    this.findVariationPrice();
   }
 
   changeSelectedType(){
@@ -94,10 +108,35 @@ export class PizzaItemComponent {
       this.selectedIngredients = this.selectedIngredients.filter(id => id !== ingredientId);
     }
     console.log("🧪this.selectedIngredients🧪", this.selectedIngredients);
+
+    const ingredientPrice = this.selectedIngredients.reduce((total, id) => {
+      // Находим ингредиент по id
+      const ingredient = this.pizza.ingredients.find((item: any) => item.id === id);
+      console.log(ingredient);
+    
+      // Если ингредиент найден, добавляем цену на основе выбранного размера
+      if (ingredient) {
+        if (this.selectedSize === 20) {
+          return total + parseFloat(ingredient.price1);
+        } else if (this.selectedSize === 30) {
+          return total + parseFloat(ingredient.price2);
+        } else {
+          return total + parseFloat(ingredient.price3);
+        }
+      }
+    
+      return total;
+    }, 0);
+    
+    // Логируем и сохраняем результаты
+    console.log("Общая цена выбранных ингредиентов:", ingredientPrice);
+    this.ingredientsPrice = ingredientPrice;
+    this.totalPrice = this.pizzaVariationPrice + this.ingredientsPrice;
+    
   }
   mouseover(){
     console.log("mouseover");
-    // this.showIngredients = false;
+    this.showIngredients = false;
   }
 }
  

@@ -39,10 +39,11 @@
 </div>
 </div>
 </div> -->
+<!-- <button (click)="logAnything()" style="background-color: brown; color: white; border-radius: 15px; padding: 2px 15px;">Log anything</button> -->
 
 <div class="product-item" (mouseleave)="mouseover()">
  <div class="img-cont">
-   <img [src]="pizza.variations[0].image_url" alt="">
+   <img [src]="pizza.variations[1].image_url" alt="">
  </div>
  <div class="product-item-cont">
 
@@ -53,38 +54,24 @@
   {{ingredients}}
  </p>
  <div class="add-info">
-   <!-- <select name="ingredients">
-     <option value="1">Сочные ананасы</option>
-     <option value="2">Хрустящий бекон</option>
-   </select> -->
-   <!-- <select name="ingredients" [(ngModel)]="selectedIngredients" multiple>
-    <option *ngFor="let ingredient of pizza.ingredients" [value]="ingredient.id">
-      {{ingredient.name}}
-    </option>
-  </select> -->
-<!-- 
-<div class="ingredients-cont">
-  <button class="ingredient-btn" (click)="showIngredients = !showIngredients">Ингредиенты</button>
-  <div class="ingredients" *ngIf="showIngredients" >
-    <label *ngFor="let ingredient of pizza.ingredients">
-      <input 
-        type="checkbox" 
-        [value]="ingredient.id">
-      {{ ingredient.name }}
-    </label>
-  </div>
-</div> -->
   
 
 <div class="ingredients-cont" *ngIf="this.pizza.ingredients.length > 0" >
   <button class="ingredient-btn" (click)="showIngredients = !showIngredients">Ингредиенты</button>
   <div class="ingredients" *ngIf="showIngredients" >
     <div *ngFor="let ingredient of pizza.ingredients" (click)="onIngredientChange(ingredient.id)">
+    <div *ngIf="!(!ingredient.price1  && selectedSize == 20)">
       <div
       [ngClass]="{'active-checkbox': this.selectedIngredients.includes(ingredient.id), checkbox: true}"
       >
-      {{ ingredient.name }}
-      </div>
+      {{ ingredient.name }} 
+      <small *ngIf="selectedSize == 20">{{ingredient.price1}}₽</small>
+      <small *ngIf="selectedSize == 30">{{ingredient.price2}}₽</small>
+      <small *ngIf="selectedSize == 40">{{ingredient.price3}}₽</small>
+      <img src="{{ingredient.image_url}}" alt="">
+    </div>
+    
+    </div>
         <!-- [value]="ingredient.id"> -->
       
     </div>
@@ -108,7 +95,7 @@
  <div class="btn-price-cont">
    <div class="btn-price">
      <button>Выбрать</button>
-     <b>от {{pizza.variations[0].price}}₽</b>
+     <b>от {{totalPrice || pizza.variations[0].price}}₽</b>
    </div>
  </div>
 </div>

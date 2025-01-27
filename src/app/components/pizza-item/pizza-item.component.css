@@ -8,8 +8,13 @@
  padding-top: 87px;
  overflow: hidden;
 }
-.product-item:not(:hover) .ingredients, .product-item:not(:hover) .types{
+.product-item:not(:hover) .ingredients, 
+.product-item:not(:hover) .types{
  display: none;
+}
+.checkbox img {
+ width: 21px !important;
+ display: inline-block !important;
 }
 .img-cont {
  position: absolute;
@@ -18,9 +23,9 @@
 }
 .product-item-cont {
  background-color: white;
- padding: 15px;
+ padding: 0;
  border-radius: 30px;
- padding-top: 233px;
+ padding-top: 259px;
  position: relative;
  height: 154px;
 }
@@ -74,7 +79,7 @@
 }
 .product-item:hover .add-info {
 visibility: visible;
-height: 102px;
+height: 107px;
 }
 .add-info {
  visibility: hidden;
@@ -102,11 +107,12 @@ height: 102px;
  position: absolute;
  z-index: 15;
  bottom: 0;
- left: 15px;
- right: 15px;
+ left: 0;
+ right: 0;
  background-color: #ffffff8f;
  backdrop-filter: blur(10px);
  border-radius: 15px;
+ padding: 5px 15px 0 15px;
 }
 .product-item-text p {
  font-size: 13px;
