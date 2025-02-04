@@ -5,9 +5,9 @@
 .product-item {
  width: 100%;
  position: relative;
- padding-top: 87px;
+ padding-top: 105px;
  overflow: hidden;
-} 
+}
 .product-item:not(:hover) .ingredients, 
 .product-item:not(:hover) .types{
  display: none;
@@ -79,12 +79,15 @@
 }
 .product-item:hover .add-info {
 visibility: visible;
-height: 107px;
+height: 35px;
 }
 .add-info {
  visibility: hidden;
  transition: all 0.25s ease;
  height: 0;
+}
+.volumeCont div {
+ margin-right: 8px;
 }
 .product-item-text p {
  font-size: 14px;
@@ -103,6 +106,9 @@ height: 107px;
 .product-item-text1 {
  opacity: 0;
 }
+h4 {
+ transition: all 0.25s ease;
+}
 .product-item-text2 {
  position: absolute;
  z-index: 15;
@@ -118,9 +124,6 @@ height: 107px;
  font-size: 13px;
  margin: 3px 0 7px;
  color: #7F7D7C;
- transition: all 0.25s ease;
-}
-h4 {
  transition: all 0.25s ease;
 }
 select[name="types"], select[name="ingredients"] {
@@ -269,4 +272,7 @@ button {
 }
 h4 {
  color: #181717;
+}
+.volumeCont {
+ display: flex;
 }

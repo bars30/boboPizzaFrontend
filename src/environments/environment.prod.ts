@@ -20,5 +20,8 @@ export const environment = {
   },
   getPizzas:{
       get: url + 'products/pizzas'
+  },
+  drinks: {
+      get: url + 'products/drinks'
   }
 }; 

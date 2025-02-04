@@ -27,8 +27,8 @@ export class PizzaItemComponent {
   }
 
   ngOnInit() {
-    console.log("🎁🎁🎁",this.pizza);
-    console.log("🎀", this.pizza.ingredients.length);
+    // console.log("🎁🎁🎁",this.pizza);
+    // console.log("🎀", this.pizza.ingredients.length);
     if(this.pizza.ingredients.length == 0){
       this.ingredients = this.pizza.description;
     } else {
@@ -57,57 +57,57 @@ export class PizzaItemComponent {
     
   }
   findAvailablePizzas() {
-    console.log("SELECTEDTYPE", this.selectedType);
+    // console.log("SELECTEDTYPE", this.selectedType);
     
     this.availablePizzas = this.pizza.variations.filter((item: any) => {
       return (item.crust_type === this.selectedType)});
 
-    console.log("AVAILABLEPIZZAS", this.availablePizzas);
-      console.log("00this.pizza.variations", this.pizza.variations);
+    // console.log("AVAILABLEPIZZAS", this.availablePizzas);
+    //   console.log("00this.pizza.variations", this.pizza.variations);
       
     const availableSize =   this.availablePizzas.find((item: any) => {
       return item.is_available;}
     )
     if (availableSize) {
-      console.log("yeahhhhhhhhhhh");
-      console.log("🥶🦄🥶", availableSize);
+      // console.log("yeahhhhhhhhhhh");
+      // console.log("🥶🦄🥶", availableSize);
       this.selectedSize = availableSize.size_cm;
     }
-    console.log("🪇",this.selectedSize);
-    console.log(45545);
+    // console.log("🪇",this.selectedSize);
+    // console.log(45545);
     this.findVariationPrice()
   }
 
   findVariationPrice(){
-    console.log("this.selectedSize --> ",this.selectedSize);
-    console.log("this.selectedType --> ",this.selectedType);
-    console.log("this.availablePizzas --> ",this.availablePizzas);
-    console.log(this.availablePizzas.find((item: any) => item.size_cm == this.selectedSize).price);
+    // console.log("this.selectedSize --> ",this.selectedSize);
+    // console.log("this.selectedType --> ",this.selectedType);
+    // console.log("this.availablePizzas --> ",this.availablePizzas);
+    // console.log(this.availablePizzas.find((item: any) => item.size_cm == this.selectedSize).price);
     this.pizzaVariationPrice = parseFloat(this.availablePizzas.find((item: any) => item.size_cm == this.selectedSize).price);
     this.totalPrice = this.pizzaVariationPrice + this.ingredientsPrice;
   }
 
   changeSize(size: number){
     this.selectedSize = size;
-    console.log(size);
+    // console.log(size);
     this.findVariationPrice();
   }
 
   changeSelectedType(){
-    console.log(this.selectedType);
+    // console.log(this.selectedType);
     this.findAvailablePizzas();
   }
 
   onIngredientChange(ingredientId: number): void {
-    console.log(ingredientId);
-    console.log(this.selectedIngredients.includes(ingredientId));
+    // console.log(ingredientId);
+    // console.log(this.selectedIngredients.includes(ingredientId));
     
     if (!this.selectedIngredients.includes(ingredientId)) {
       this.selectedIngredients.push(ingredientId);
     } else {
       this.selectedIngredients = this.selectedIngredients.filter(id => id !== ingredientId);
     }
-    console.log("🧪this.selectedIngredients🧪", this.selectedIngredients);
+    // console.log("🧪this.selectedIngredients🧪", this.selectedIngredients);
 
     const ingredientPrice = this.selectedIngredients.reduce((total, id) => {
       // Находим ингредиент по id
@@ -129,13 +129,13 @@ export class PizzaItemComponent {
     }, 0);
     
     // Логируем и сохраняем результаты
-    console.log("Общая цена выбранных ингредиентов:", ingredientPrice);
+    // console.log("Общая цена выбранных ингредиентов:", ingredientPrice);
     this.ingredientsPrice = ingredientPrice;
     this.totalPrice = this.pizzaVariationPrice + this.ingredientsPrice;
     
   }
   mouseover(){
-    console.log("mouseover");
+    // console.log("mouseover");
     this.showIngredients = false;
   }
 }

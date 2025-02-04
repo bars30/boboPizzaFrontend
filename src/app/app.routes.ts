@@ -14,6 +14,11 @@ export const routes: Routes = [
      canActivate: [loginGuard]
     },
     {
+      path: ":id",
+     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent),
+     canActivate: [loginGuard]
+    },
+    {
      path: "login",
      loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
      canActivate: [accountGuard]

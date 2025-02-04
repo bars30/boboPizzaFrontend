@@ -1,0 +1,33 @@
+<!-- <button (click)="logAnything()" style="background-color: brown; color: white; border-radius: 15px; padding: 2px 15px;">Log anything</button> -->
+
+<div class="product-item" (mouseleave)="mouseover()">
+ <div class="img-cont">
+   <img [src]="imgUrl" alt="">
+ </div>
+ <div class="product-item-cont">
+
+
+<div class="product-item-text product-item-text2"  >
+ <h4>{{drink.name}}</h4>
+ <p>
+  {{drink.description}}
+ </p>
+ 
+
+ <div class="add-info" *ngIf="drink.variations.length > 1">
+  <div class="volumeCont" *ngIf="this.drink.variations.length > 1">
+    <div  *ngFor="let variation of this.drink.variations">
+      <button [ngClass]="{'active': variation.volume_ml == selectedVolume && variation.is_available, sizebtn: true}" (click)="changeSize(variation.volume_ml)" [disabled]="!variation.is_available">{{variation.volume_ml}} мл</button>
+     </div>
+  </div>
+ </div>
+ 
+ <div class="btn-price-cont">
+   <div class="btn-price">
+     <button>Выбрать</button>
+     <b>от {{totalPrice}}₽</b>
+   </div>
+ </div>
+</div>
+</div>
+</div>
