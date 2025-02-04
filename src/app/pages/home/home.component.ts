@@ -54,7 +54,9 @@ export class HomeComponent {
       (data) => {
         this.pizzas = data;
         console.log("👏🏻👏🏻👏🏻", this.pizzas);
-        this.showLoader = false;
+        if (this.showCategory.pizza) {
+          this.showLoader = false; 
+        }
       },
       (error) => {
         console.error('Ошибка при загрузке пицц:', error);
@@ -64,7 +66,9 @@ export class HomeComponent {
       (data) => {
         this.drinks = data;
         console.log("👏🏻👏🏻👏🏻", data);
-        
+        if (this.showCategory.drinks) {
+          this.showLoader = false; 
+        }
       },
       (error) => {
         console.error('Ошибка при загрузке drinks:', error);
@@ -74,7 +78,9 @@ export class HomeComponent {
       (data) => {
         this.desserts = data;
         console.log("👏🏻👏🏻👏🏻🥐🥐🥐", data);
-        
+        if (this.showCategory.desserts) {
+          this.showLoader = false; 
+        }
       },
       (error) => {
         console.error('Ошибка при загрузке desserts:', error);
@@ -84,7 +90,9 @@ export class HomeComponent {
       (data) => {
         this.breakfasts = data;
         console.log("👏🏻👏🏻👏🏻🥐🥐🥐", data);
-        
+        if (this.showCategory.breakfasts) {
+          this.showLoader = false; 
+        }
       },
       (error) => {
         console.error('Ошибка при загрузке desserts:', error);
@@ -94,7 +102,9 @@ export class HomeComponent {
       (data) => {
         this.snacks = data;
         console.log("👏🏻👏🏻👏🏻🥐🥐🥐", data);
-        
+        if (this.showCategory.snacks) {
+          this.showLoader = false; 
+        }
       },
       (error) => {
         console.error('Ошибка при загрузке desserts:', error);
