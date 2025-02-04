@@ -20,4 +20,10 @@ export class PizzasService {
   getDesserts(): Observable<any[]> {
     return this.http.get<any[]>(environment.desserts.get);
   }
+  getBreakfasts(): Observable<any[]> {
+    return this.http.get<any[]>(environment.breakfasts.get);
+  }
+  getSnacks(): Observable<any[]> {
+    return this.http.get<any[]>(environment.snacks.get);
+  }
 }

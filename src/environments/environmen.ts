@@ -26,5 +26,11 @@ export const environment = {
   },
   desserts: {
     get: url + 'products/desserts'
+  },
+  breakfasts: {
+    get: url + 'products/breakfasts'
+  },
+  snacks: {
+    get: url + 'products/snacks'
   }
 }; 

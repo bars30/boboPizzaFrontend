@@ -24,12 +24,16 @@ export class HomeComponent {
   pizzas: any[] = [];
   drinks: any[] = [];
   desserts: any[] = [];
+  breakfasts: any[] = [];
+  snacks: any[] = [];
   showLoader: boolean = true;
 
-  showCategory: { pizza: boolean; drinks: boolean, desserts: boolean } = {
+  showCategory: { pizza: boolean; drinks: boolean, desserts: boolean, breakfasts: boolean, snacks: boolean } = {
     pizza: true,
     drinks: false,
-    desserts: false
+    desserts: false,
+    breakfasts: false,
+    snacks: false
   };
 
   constructor(private pizzasService: PizzasService,
@@ -69,6 +73,26 @@ export class HomeComponent {
     this.pizzasService.getDesserts().subscribe(
       (data) => {
         this.desserts = data;
+        console.log("👏🏻👏🏻👏🏻🥐🥐🥐", data);
+        
+      },
+      (error) => {
+        console.error('Ошибка при загрузке desserts:', error);
+      }
+    );
+    this.pizzasService.getBreakfasts().subscribe(
+      (data) => {
+        this.breakfasts = data;
+        console.log("👏🏻👏🏻👏🏻🥐🥐🥐", data);
+        
+      },
+      (error) => {
+        console.error('Ошибка при загрузке desserts:', error);
+      }
+    );
+    this.pizzasService.getSnacks().subscribe(
+      (data) => {
+        this.snacks = data;
         console.log("👏🏻👏🏻👏🏻🥐🥐🥐", data);
         
       },
