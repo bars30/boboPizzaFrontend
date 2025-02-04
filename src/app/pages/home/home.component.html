@@ -1,8 +1,21 @@
 <div class="cont">
   <app-toolbar (changedProductCategory)="changeCategory($event)"></app-toolbar>
 </div>
-<div class="item">
+<div class="carousel-cont">
+  <div class="container">
+    <img src="/assets/07.png" alt="">
+  </div>
+</div>
+<!-- <div class="item">
   <ngx-skeleton-loader count="5" appearance="circle" />
+</div> -->
+<div class="c">
+  <div class="container">
+    <h1 style="text-align: center;" *ngIf="this.showCategory.pizza">Пицца</h1>
+    <h1 style="text-align: center;" *ngIf="this.showCategory.drinks">Напитки</h1>
+    <h1 style="text-align: center;" *ngIf="this.showCategory.desserts">Десерты</h1>
+  </div>
+  
 </div>
 <div class="c">
   <div class="loading-cont" *ngIf="showLoader">
@@ -74,6 +87,10 @@
 
 <div class="cont">
   <div class="container">
+    <div class="product" *ngIf="this.showCategory.desserts">
+      <app-product-item class="product-item" *ngFor="let product of desserts" [drink]="product"></app-product-item>
+
+    </div>
     <div class="product" *ngIf="this.showCategory.pizza">
       <app-pizza-item class="product-item" *ngFor="let product of pizzas" [pizza]="product"></app-pizza-item>
 

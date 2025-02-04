@@ -26,13 +26,13 @@ export class ProductItemComponent {
     // console.log(this.drink.variations.find((item: any) => {
     //   return item.is_available
     // }));
-    this.imgUrl = this.drink.variations.find((item: any) => {
+    this.imgUrl = this.drink?.variations?.find((item: any) => {
       return item.is_available
     }).image_url;
-    this.totalPrice = this.drink.variations.find((item: any) => {
+    this.totalPrice = this.drink?.variations?.find((item: any) => {
       return item.is_available
     }).price;
-    this.selectedVolume = this.drink.variations.find((item: any) => {
+    this.selectedVolume = this.drink?.variations?.find((item: any) => {
       return item.is_available
     }).volume_ml;
 
@@ -52,7 +52,7 @@ export class ProductItemComponent {
   changeSize(size: number){
     this.selectedVolume = size;
     // console.log(size);
-    this.totalPrice = this.drink.variations.find((item: any) => {
+    this.totalPrice = this.drink?.variations?.find((item: any) => {
       return item.volume_ml == size
     }).price;
   }

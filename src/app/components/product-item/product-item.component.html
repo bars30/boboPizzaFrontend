@@ -2,7 +2,7 @@
 
 <div class="product-item" (mouseleave)="mouseover()">
  <div class="img-cont">
-   <img [src]="imgUrl" alt="">
+   <img [src]="imgUrl || drink?.image_url" alt="">
  </div>
  <div class="product-item-cont">
 
@@ -14,7 +14,7 @@
  </p>
  
 
- <div class="add-info" *ngIf="drink.variations.length > 1">
+ <div class="add-info" *ngIf="drink?.variations?.length > 1">
   <div class="volumeCont" *ngIf="this.drink.variations.length > 1">
     <div  *ngFor="let variation of this.drink.variations">
       <button [ngClass]="{'active': variation.volume_ml == selectedVolume && variation.is_available, sizebtn: true}" (click)="changeSize(variation.volume_ml)" [disabled]="!variation.is_available">{{variation.volume_ml}} мл</button>
@@ -25,7 +25,7 @@
  <div class="btn-price-cont">
    <div class="btn-price">
      <button>Выбрать</button>
-     <b>от {{totalPrice}}₽</b>
+     <b>от {{totalPrice || drink?.price}}₽</b>
    </div>
  </div>
 </div>

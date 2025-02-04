@@ -1,0 +1,17 @@
+.container {
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+}
+.container p {
+ margin: 0 10px 0 0;
+ cursor: pointer;
+ font-weight: 600;
+ transition: all 0.17s ease-in;
+}
+.active {
+ color: #cc2633;
+}
+p:hover {
+ color: #ae454d;
+}

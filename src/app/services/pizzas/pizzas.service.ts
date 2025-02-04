@@ -16,4 +16,8 @@ export class PizzasService {
   getDrinks(): Observable<any[]> {
     return this.http.get<any[]>(environment.drinks.get);
   }
+
+  getDesserts(): Observable<any[]> {
+    return this.http.get<any[]>(environment.desserts.get);
+  }
 }

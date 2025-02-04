@@ -6,7 +6,7 @@
 .product-item {
  width: 100%;
  position: relative;
- padding-top: 76px;
+ padding-bottom: 35px;
  overflow: hidden;
 }
 .cont {
@@ -86,4 +86,12 @@
 }
 .c {
  background-color: #F2EDE9;
+}
+.carousel-cont {
+    background-color: #F2EDE9;
+
+}
+.carousel-cont img {
+    width: 100%;
+    border-radius: 15px;
 }

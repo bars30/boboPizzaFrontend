@@ -23,11 +23,13 @@ export class HomeComponent {
   showInfoPopup: boolean = false;
   pizzas: any[] = [];
   drinks: any[] = [];
+  desserts: any[] = [];
   showLoader: boolean = true;
 
-  showCategory: { pizza: boolean; drinks: boolean } = {
+  showCategory: { pizza: boolean; drinks: boolean, desserts: boolean } = {
     pizza: true,
-    drinks: false
+    drinks: false,
+    desserts: false
   };
 
   constructor(private pizzasService: PizzasService,
@@ -35,7 +37,12 @@ export class HomeComponent {
     this.route.params.subscribe(params => {
       // this.category = params['id'] || 'default'; // default - եթե id չկա
       console.log("📌 Ընտրված կատեգորիա:", params['id']);
-      this.changeCategory(params['id']);
+      if (params['id'] === undefined) {
+        console.log("UNDEFINEEEEEEEEEEEED");
+        this.changeCategory('pizza');  
+      } else {
+        this.changeCategory(params['id']);
+      }
     });
   }
   ngOnInit(): void {
@@ -57,6 +64,16 @@ export class HomeComponent {
       },
       (error) => {
         console.error('Ошибка при загрузке drinks:', error);
+      }
+    );
+    this.pizzasService.getDesserts().subscribe(
+      (data) => {
+        this.desserts = data;
+        console.log("👏🏻👏🏻👏🏻🥐🥐🥐", data);
+        
+      },
+      (error) => {
+        console.error('Ошибка при загрузке desserts:', error);
       }
     );
   }
