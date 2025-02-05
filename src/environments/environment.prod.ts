@@ -32,5 +32,8 @@ export const environment = {
   },
   snacks: {
     get: url + 'products/snacks'
+  },
+  addToCart: {
+    get: url + 'cart/add-to-cart'
   }
 }; 

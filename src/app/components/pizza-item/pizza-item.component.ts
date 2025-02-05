@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PizzasService } from '../../services/pizzas/pizzas.service';
 
 @Component({
   selector: 'app-pizza-item',
   standalone: true,
-  imports: [CommonModule, FormsModule  ],
+  imports: [CommonModule, FormsModule, HttpClientModule  ],
   templateUrl: './pizza-item.component.html',
   styleUrl: './pizza-item.component.css'
 })
@@ -21,7 +23,7 @@ export class PizzaItemComponent {
   ingredientsPrice = 0;
   totalPrice = this.pizzaVariationPrice + this.ingredientsPrice;
 
-  constructor() {
+  constructor(private pizzasService: PizzasService,) {
     console.log(this.pizza);
     
   }
@@ -138,5 +140,38 @@ export class PizzaItemComponent {
     // console.log("mouseover");
     this.showIngredients = false;
   }
+
+  addToCart() {
+    const selectedVariation = this.pizza.variations.find((v: { size_cm: number; crust_type: string; }) => 
+      v.size_cm === this.selectedSize && v.crust_type === this.selectedType
+    );
+  
+    if (!selectedVariation) {
+      console.error("Variation not found!");
+      return;
+    }
+  
+    const cartItem = {
+      // cart_id: 1,  // ID корзины (замени на актуальный)
+      category: "pizzas",
+      item_id: selectedVariation.id, // ID вариации пиццы
+      quantity: 1,
+      price: parseFloat(selectedVariation.price), // Цена за 1 шт
+      subtotal: parseFloat(selectedVariation.price) * 1, // Итоговая сумма
+      ingredients: this.selectedIngredients, // Выбранные ингредиенты
+    };
+  
+    console.log("Cart Item:", cartItem);
+    // Отправить cartItem в API
+    this.pizzasService.addToCart(cartItem).subscribe(
+      response => {
+        console.log("Товар добавлен в корзину:", response);
+      },
+      error => {
+        console.error("Ошибка при добавлении в корзину:", error);
+      }
+    );
+  }
+  
 }
  

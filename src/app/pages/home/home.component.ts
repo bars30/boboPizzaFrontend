@@ -9,13 +9,14 @@ import { PizzaItemComponent } from '../../components/pizza-item/pizza-item.compo
 import { ProductItemComponent } from '../../components/product-item/product-item.component';
 import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SheetComponent } from '../../components/sheet/sheet.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [PopupInfoComponent, NgIf, PizzaItemComponent,
      CommonModule, ProductItemComponent, ToolbarComponent,
-     NgxSkeletonLoaderModule],
+     NgxSkeletonLoaderModule, SheetComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -35,6 +36,15 @@ export class HomeComponent {
     breakfasts: false,
     snacks: false
   };
+  isSheetOpen = false;
+
+  openSheet() {
+    this.isSheetOpen = true;
+  }
+
+  closeSheet() {
+    this.isSheetOpen = false;
+  }
 
   constructor(private pizzasService: PizzasService,
     private route: ActivatedRoute) {

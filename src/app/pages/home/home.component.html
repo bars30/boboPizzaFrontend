@@ -1,5 +1,6 @@
 <div class="cont">
-  <app-toolbar (changedProductCategory)="changeCategory($event)"></app-toolbar>
+  <app-toolbar (changedProductCategory)="changeCategory($event)" 
+  (openSheetComp)="openSheet()"></app-toolbar>
 </div>
 <div class="carousel-cont">
   <div class="container">
@@ -84,6 +85,9 @@
   
   </div>
 </div>
+<!-- <button (click)="openSheet()">Open Sheet</button> -->
+
+<app-sheet [isOpen]="isSheetOpen" (closeSheet)="closeSheet()"></app-sheet>
 
 
 

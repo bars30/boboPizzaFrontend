@@ -26,4 +26,10 @@ export class PizzasService {
   getSnacks(): Observable<any[]> {
     return this.http.get<any[]>(environment.snacks.get);
   }
+  // addToCart(cartItem: any): Observable<any> {
+  //   return this.http.post(environment.addToCart.get, cartItem);
+  // }
+  addToCart(cartItem: any): Observable<any> {
+    return this.http.post(environment.addToCart.get, cartItem);
+  }
 }

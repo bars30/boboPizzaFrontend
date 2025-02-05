@@ -11,6 +11,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 })
 export class ToolbarComponent {
   @Output() changedProductCategory = new EventEmitter<string>();
+  @Output() openSheetComp = new EventEmitter<any>();
   selectedCategory: string = 'pizza';
 
   // constructor(private router: Router) {}
@@ -41,5 +42,8 @@ export class ToolbarComponent {
         console.error("❌ URL CHANGE FAILED");
       }
     });
+  }
+  openSheet() {
+    this.openSheetComp.emit();
   }
 }

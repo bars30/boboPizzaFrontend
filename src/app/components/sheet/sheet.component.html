@@ -1,0 +1,7 @@
+<div class="sheet-overlay" *ngIf="isOpen" (click)="close()"></div>
+
+<div class="sheet" [class.open]="isOpen">
+  <button class="close-btn" (click)="close()">×</button>
+  <h2>Are you sure?</h2>
+  <p>This action cannot be undone.</p>
+</div>

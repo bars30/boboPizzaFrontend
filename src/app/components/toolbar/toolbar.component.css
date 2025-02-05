@@ -15,3 +15,14 @@
 p:hover {
  color: #ae454d;
 }
+button {
+ background-color: #d5555e;
+    padding: 5px 15px;
+    border-radius: 29px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+
