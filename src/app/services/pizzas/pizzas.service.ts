@@ -9,27 +9,32 @@ import { environment } from '../../../environments/environmen';
 export class PizzasService {
 
   constructor(private http: HttpClient) { }
-
+ 
   getPizzas(): Observable<any[]> {
-    return this.http.get<any[]>(environment.getPizzas.get);
+    return this.http.get<any[]>(environment.getPizzas);
   }
   getDrinks(): Observable<any[]> {
-    return this.http.get<any[]>(environment.drinks.get);
+    return this.http.get<any[]>(environment.drinks);
   }
 
   getDesserts(): Observable<any[]> {
-    return this.http.get<any[]>(environment.desserts.get);
+    return this.http.get<any[]>(environment.desserts);
   }
   getBreakfasts(): Observable<any[]> {
-    return this.http.get<any[]>(environment.breakfasts.get);
+    return this.http.get<any[]>(environment.breakfasts);
   }
   getSnacks(): Observable<any[]> {
-    return this.http.get<any[]>(environment.snacks.get);
+    return this.http.get<any[]>(environment.snacks);
   }
   // addToCart(cartItem: any): Observable<any> {
   //   return this.http.post(environment.addToCart.get, cartItem);
   // }
+  // addToCart(cartItem: any): Observable<any> {
+  //   return this.http.post(environment.addToCart, cartItem);
+  // }
+
   addToCart(cartItem: any): Observable<any> {
-    return this.http.post(environment.addToCart.get, cartItem);
+    return this.http.post(environment.addToCart, cartItem, { withCredentials: true });
   }
+  
 }

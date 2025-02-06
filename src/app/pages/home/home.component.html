@@ -1,89 +1,89 @@
 <div class="cont">
-  <app-toolbar (changedProductCategory)="changeCategory($event)" 
-  (openSheetComp)="openSheet()"></app-toolbar>
+ <app-toolbar (changedProductCategory)="changeCategory($event)" 
+ (openSheetComp)="openSheet()"></app-toolbar>
 </div>
 <div class="carousel-cont">
-  <div class="container">
-    <img src="/assets/07.png" alt="">
-  </div>
+ <div class="container">
+   <img src="/assets/07.png" alt="">
+ </div>
 </div>
 <!-- <div class="item">
-  <ngx-skeleton-loader count="5" appearance="circle" />
+ <ngx-skeleton-loader count="5" appearance="circle" />
 </div> -->
 <div class="c">
-  <div class="container">
-    <h1 style="text-align: center;" *ngIf="this.showCategory.pizza">Пицца</h1>
-    <h1 style="text-align: center;" *ngIf="this.showCategory.drinks">Напитки</h1>
-    <h1 style="text-align: center;" *ngIf="this.showCategory.desserts">Десерты</h1>
-    <h1 style="text-align: center;" *ngIf="this.showCategory.breakfasts">Завтраки</h1>
-    <h1 style="text-align: center;" *ngIf="this.showCategory.snacks">Закуски</h1>
-  </div>
-  
+ <div class="container">
+   <h1 style="text-align: center;" *ngIf="this.showCategory.pizza">Пицца</h1>
+   <h1 style="text-align: center;" *ngIf="this.showCategory.drinks">Напитки</h1>
+   <h1 style="text-align: center;" *ngIf="this.showCategory.desserts">Десерты</h1>
+   <h1 style="text-align: center;" *ngIf="this.showCategory.breakfasts">Завтраки</h1>
+   <h1 style="text-align: center;" *ngIf="this.showCategory.snacks">Закуски</h1>
+ </div>
+ 
 </div>
 <div class="c">
-  <div class="loading-cont" *ngIf="showLoader">
-    <div class="pizza-card">
-      <ngx-skeleton-loader count="1" appearance="circle" class="pizza-image" [theme]="{ 'border-radius': '50%', 'width': '160px', 'height': '160px', 'position': 'absolute', 'top': '0', 'left': '0', 'right': '0', 'margin': 'auto', 'z-index': '100', 'border': '3px solid white' }"></ngx-skeleton-loader>
-      <div class="pizza-card-skeleton">
-        <div class="title">
-          <div class="title-cont">
-            <ngx-skeleton-loader count="1" appearance="line" class="pizza-title"></ngx-skeleton-loader>
-          </div>
-        </div>
-        <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '40px' }"></ngx-skeleton-loader>
-        <div class="button-price-cont">
-          <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '95%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
-          <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '100%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
-        </div>
-      </div>
-    </div>
-    <div class="pizza-card">
-      <ngx-skeleton-loader count="1" appearance="circle" class="pizza-image" [theme]="{ 'border-radius': '50%', 'width': '160px', 'height': '160px', 'position': 'absolute', 'top': '0', 'left': '0', 'right': '0', 'margin': 'auto', 'z-index': '100', 'border': '3px solid white' }"></ngx-skeleton-loader>
-      <div class="pizza-card-skeleton">
-        <div class="title">
-          <div class="title-cont">
-            <ngx-skeleton-loader count="1" appearance="line" class="pizza-title"></ngx-skeleton-loader>
-          </div>
-        </div>
-        <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '40px' }"></ngx-skeleton-loader>
-        <div class="button-price-cont">
-          <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '95%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
-          <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '100%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
-        </div>
-      </div>
-    </div>
-    <div class="pizza-card">
-      <ngx-skeleton-loader count="1" appearance="circle" class="pizza-image" [theme]="{ 'border-radius': '50%', 'width': '160px', 'height': '160px', 'position': 'absolute', 'top': '0', 'left': '0', 'right': '0', 'margin': 'auto', 'z-index': '100', 'border': '3px solid white' }"></ngx-skeleton-loader>
-      <div class="pizza-card-skeleton">
-        <div class="title">
-          <div class="title-cont">
-            <ngx-skeleton-loader count="1" appearance="line" class="pizza-title"></ngx-skeleton-loader>
-          </div>
-        </div>
-        <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '40px' }"></ngx-skeleton-loader>
-        <div class="button-price-cont">
-          <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '95%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
-          <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '100%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
-        </div>
-      </div>
-    </div>
-    <div class="pizza-card">
-      <ngx-skeleton-loader count="1" appearance="circle" class="pizza-image" [theme]="{ 'border-radius': '50%', 'width': '160px', 'height': '160px', 'position': 'absolute', 'top': '0', 'left': '0', 'right': '0', 'margin': 'auto', 'z-index': '100', 'border': '3px solid white' }"></ngx-skeleton-loader>
-      <div class="pizza-card-skeleton">
-        <div class="title">
-          <div class="title-cont">
-            <ngx-skeleton-loader count="1" appearance="line" class="pizza-title"></ngx-skeleton-loader>
-          </div>
-        </div>
-        <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '40px' }"></ngx-skeleton-loader>
-        <div class="button-price-cont">
-          <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '95%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
-          <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '100%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
-        </div>
-      </div>
-    </div>
-  
-  </div>
+ <div class="loading-cont" *ngIf="showLoader">
+   <div class="pizza-card">
+     <ngx-skeleton-loader count="1" appearance="circle" class="pizza-image" [theme]="{ 'border-radius': '50%', 'width': '160px', 'height': '160px', 'position': 'absolute', 'top': '0', 'left': '0', 'right': '0', 'margin': 'auto', 'z-index': '100', 'border': '3px solid white' }"></ngx-skeleton-loader>
+     <div class="pizza-card-skeleton">
+       <div class="title">
+         <div class="title-cont">
+           <ngx-skeleton-loader count="1" appearance="line" class="pizza-title"></ngx-skeleton-loader>
+         </div>
+       </div>
+       <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '40px' }"></ngx-skeleton-loader>
+       <div class="button-price-cont">
+         <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '95%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
+         <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '100%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
+       </div>
+     </div>
+   </div>
+   <div class="pizza-card">
+     <ngx-skeleton-loader count="1" appearance="circle" class="pizza-image" [theme]="{ 'border-radius': '50%', 'width': '160px', 'height': '160px', 'position': 'absolute', 'top': '0', 'left': '0', 'right': '0', 'margin': 'auto', 'z-index': '100', 'border': '3px solid white' }"></ngx-skeleton-loader>
+     <div class="pizza-card-skeleton">
+       <div class="title">
+         <div class="title-cont">
+           <ngx-skeleton-loader count="1" appearance="line" class="pizza-title"></ngx-skeleton-loader>
+         </div>
+       </div>
+       <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '40px' }"></ngx-skeleton-loader>
+       <div class="button-price-cont">
+         <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '95%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
+         <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '100%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
+       </div>
+     </div>
+   </div>
+   <div class="pizza-card">
+     <ngx-skeleton-loader count="1" appearance="circle" class="pizza-image" [theme]="{ 'border-radius': '50%', 'width': '160px', 'height': '160px', 'position': 'absolute', 'top': '0', 'left': '0', 'right': '0', 'margin': 'auto', 'z-index': '100', 'border': '3px solid white' }"></ngx-skeleton-loader>
+     <div class="pizza-card-skeleton">
+       <div class="title">
+         <div class="title-cont">
+           <ngx-skeleton-loader count="1" appearance="line" class="pizza-title"></ngx-skeleton-loader>
+         </div>
+       </div>
+       <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '40px' }"></ngx-skeleton-loader>
+       <div class="button-price-cont">
+         <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '95%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
+         <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '100%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
+       </div>
+     </div>
+   </div>
+   <div class="pizza-card">
+     <ngx-skeleton-loader count="1" appearance="circle" class="pizza-image" [theme]="{ 'border-radius': '50%', 'width': '160px', 'height': '160px', 'position': 'absolute', 'top': '0', 'left': '0', 'right': '0', 'margin': 'auto', 'z-index': '100', 'border': '3px solid white' }"></ngx-skeleton-loader>
+     <div class="pizza-card-skeleton">
+       <div class="title">
+         <div class="title-cont">
+           <ngx-skeleton-loader count="1" appearance="line" class="pizza-title"></ngx-skeleton-loader>
+         </div>
+       </div>
+       <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '40px' }"></ngx-skeleton-loader>
+       <div class="button-price-cont">
+         <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '95%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
+         <ngx-skeleton-loader count="1" appearance="line" class="pizza-description" [theme]="{  'height': '30px', 'width': '100%', 'border-radius': '50px', 'margin-bottom': '5px' }"></ngx-skeleton-loader>
+       </div>
+     </div>
+   </div>
+ 
+ </div>
 </div>
 <!-- <button (click)="openSheet()">Open Sheet</button> -->
 
@@ -92,114 +92,114 @@
 
 
 <div class="cont">
-  <div class="container">
-    <div class="product" *ngIf="this.showCategory.pizza">
-      <app-pizza-item class="product-item" *ngFor="let product of pizzas" [pizza]="product"></app-pizza-item>
-    </div> 
-    <div class="product" *ngIf="this.showCategory.drinks">
-      <app-product-item class="product-item" *ngFor="let product of drinks" [drink]="product"></app-product-item>
-    </div>
-    <div class="product" *ngIf="this.showCategory.desserts">
-      <app-product-item class="product-item" *ngFor="let product of desserts" [drink]="product"></app-product-item>
-    </div>
-    <div class="product" *ngIf="this.showCategory.breakfasts">
-      <app-product-item class="product-item" *ngFor="let product of breakfasts" [drink]="product"></app-product-item>
-    </div>
-    <div class="product" *ngIf="this.showCategory.snacks">
-      <app-product-item class="product-item" *ngFor="let product of snacks" [drink]="product"></app-product-item>
+ <div class="container">
+   <div class="product" *ngIf="this.showCategory.pizza">
+     <app-pizza-item class="product-item" *ngFor="let product of pizzas" [pizza]="product"></app-pizza-item>
+   </div> 
+   <div class="product" *ngIf="this.showCategory.drinks">
+     <app-product-item class="product-item" *ngFor="let product of drinks" [drink]="product"></app-product-item>
+   </div>
+   <div class="product" *ngIf="this.showCategory.desserts">
+     <app-product-item class="product-item" *ngFor="let product of desserts" [drink]="product"></app-product-item>
+   </div>
+   <div class="product" *ngIf="this.showCategory.breakfasts">
+     <app-product-item class="product-item" *ngFor="let product of breakfasts" [drink]="product"></app-product-item>
+   </div>
+   <div class="product" *ngIf="this.showCategory.snacks">
+     <app-product-item class="product-item" *ngFor="let product of snacks" [drink]="product"></app-product-item>
 
-    </div>
-  </div>
+   </div>
+ </div>
 </div>
 <div class="cont">
-  <div class="container info-cont">
-    <h2>Доставка пиццв в Москве</h2>
-    <p>
-      Захотелость чего-то вкусного и сытого? Желание простое и понятное, только в холоделнике все не то, и до магазина идти лень.
-      Все пропало? Нет, недорого заказать пиццу в Москве очень просто.  Достаточно выбрать любимый вариант из нашего меню, оформить заказ всего в пару кликов — и ароматная, свежая пицца уже направляется к вам!
+ <div class="container info-cont">
+   <h2>Доставка пиццв в Москве</h2>
+   <p>
+     Захотелость чего-то вкусного и сытого? Желание простое и понятное, только в холоделнике все не то, и до магазина идти лень.
+     Все пропало? Нет, недорого заказать пиццу в Москве очень просто.  Достаточно выбрать любимый вариант из нашего меню, оформить заказ всего в пару кликов — и ароматная, свежая пицца уже направляется к вам!
 
-      Мы готовим пиццу из качественных ингредиентов, с сочной начинкой и хрустящей корочкой, а доставка работает быстро и без задержек. Хотите классику? Попробуйте «Пепперони» или «Маргариту». Любите что-то необычное? Тогда вам понравятся наши фирменные сочетания с курицей, грибами или морепродуктами.
-      
-      Заказывайте прямо сейчас и наслаждайтесь идеальным вкусом без лишних хлопот! 🍕🚀
-    </p>
-  </div>
+     Мы готовим пиццу из качественных ингредиентов, с сочной начинкой и хрустящей корочкой, а доставка работает быстро и без задержек. Хотите классику? Попробуйте «Пепперони» или «Маргариту». Любите что-то необычное? Тогда вам понравятся наши фирменные сочетания с курицей, грибами или морепродуктами.
+     
+     Заказывайте прямо сейчас и наслаждайтесь идеальным вкусом без лишних хлопот! 🍕🚀
+   </p>
+ </div>
 
-  <div class="container about-cont">
-    <div class="about-item">
-      <div class="about-item-cont">
-        <h3>60 минут или пицца бесплатно</h3>
-        <p>
-          Если мы не успеем доставить продукты в течение 60 минут, кроме соусов и продуктов из раздела Другие товары, курьер подарит вам сертификат или промокод на большую пиццу 35см на традиционном тесте
-        </p>
-      </div>
-      <div class="about-shadow"></div>
-    </div>
-    <div class="about-item">
-      <div class="about-item-cont">
-        <h3>Бобо пицца - сеть пиццериий N 1  в России</h3>
-        <p>
-          по доставке пиццы ао данным из отчета Euromonitor International на май 2017 года. Все цены  в меню указаны без учета скидок
-        </p>
-      </div>
-      <div class="about-shadow"></div>
-    </div>
-    <div class="about-item">
-      <div class="about-item-cont">
-        <h3>415</h3>
-        <p>
-          Минимальная сумма доставки без учета товаров из категории Другие товары
-        </p>
-        <h3>7000</h3>
-        <p>
-          Максимальная сумма при оплате наоичным
-        </p>
-      </div>
-      <div class="about-shadow"></div>
-    </div>
-
-
-    <div class="about-item">
-      <div class="about-item-cont">
-        <img src="/assets/map.png" alt="">
-      </div>
-      <div class="about-shadow"></div>
-    </div>
+ <div class="container about-cont">
+   <div class="about-item">
+     <div class="about-item-cont">
+       <h3>60 минут или пицца бесплатно</h3>
+       <p>
+         Если мы не успеем доставить продукты в течение 60 минут, кроме соусов и продуктов из раздела Другие товары, курьер подарит вам сертификат или промокод на большую пиццу 35см на традиционном тесте
+       </p>
+     </div>
+     <div class="about-shadow"></div>
+   </div>
+   <div class="about-item">
+     <div class="about-item-cont">
+       <h3>Бобо пицца - сеть пиццериий N 1  в России</h3>
+       <p>
+         по доставке пиццы ао данным из отчета Euromonitor International на май 2017 года. Все цены  в меню указаны без учета скидок
+       </p>
+     </div>
+     <div class="about-shadow"></div>
+   </div>
+   <div class="about-item">
+     <div class="about-item-cont">
+       <h3>415</h3>
+       <p>
+         Минимальная сумма доставки без учета товаров из категории Другие товары
+       </p>
+       <h3>7000</h3>
+       <p>
+         Максимальная сумма при оплате наоичным
+       </p>
+     </div>
+     <div class="about-shadow"></div>
+   </div>
 
 
+   <div class="about-item">
+     <div class="about-item-cont">
+       <img src="/assets/map.png" alt="">
+     </div>
+     <div class="about-shadow"></div>
+   </div>
 
-  </div>
 
-  <div class="container">
-    <div class="taster-cta">
-      <h2>Стань дегустратором БоБо Пиццы и получи пиццу в подарок</h2>
-      <button>Заполни анкету</button>
-    </div>
-  </div>
 
-  <!-- <p>77777777777</p> -->
-  <footer>
-    <div class="container">
-      <div class="footer-route-info">
-        <div class="route-cont">
-          <div class="route-item">
-            <h3>О нас</h3>
-            <a href="#">Блог</a>
-            <a href="#">Качество</a>
-          </div>
-          <div class="route-item">
-            <h3>Контакты</h3>
-            <a href="#">Обратная связь</a>
-            <a href="#">Соотруднисечтво</a>
-          </div>
-          <div class="route-item">
-            <h3>Работа</h3>
-            <a href="#">В пицерии</a>
-            <a href="#">В контакт-центре</a>
-          </div>
-        
-        </div>
-      </div>
-  
-    </div>
-  </footer>
+ </div>
+
+ <div class="container">
+   <div class="taster-cta">
+     <h2>Стань дегустратором БоБо Пиццы и получи пиццу в подарок</h2>
+     <button>Заполни анкету</button>
+   </div>
+ </div>
+
+ <!-- <p>77777777777</p> -->
+ <footer>
+   <div class="container">
+     <div class="footer-route-info">
+       <div class="route-cont">
+         <div class="route-item">
+           <h3>О нас</h3>
+           <a href="#">Блог</a>
+           <a href="#">Качество</a>
+         </div>
+         <div class="route-item">
+           <h3>Контакты</h3>
+           <a href="#">Обратная связь</a>
+           <a href="#">Соотруднисечтво</a>
+         </div>
+         <div class="route-item">
+           <h3>Работа</h3>
+           <a href="#">В пицерии</a>
+           <a href="#">В контакт-центре</a>
+         </div>
+       
+       </div>
+     </div>
+ 
+   </div>
+ </footer>
 </div>

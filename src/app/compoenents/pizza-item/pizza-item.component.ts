@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PizzasService } from '../../services/pizzas/pizzas.service';
+import { environment } from '../../../environments/environmen';
+import axios from 'axios';
 
 @Component({
   selector: 'app-pizza-item',
@@ -23,7 +25,9 @@ export class PizzaItemComponent {
   ingredientsPrice = 0;
   totalPrice = this.pizzaVariationPrice + this.ingredientsPrice;
 
-  constructor(private pizzasService: PizzasService,) {
+  constructor(private pizzasService: PizzasService,
+    private http: HttpClient
+  ) {
     console.log(this.pizza);
     
   }
@@ -160,10 +164,14 @@ export class PizzaItemComponent {
       subtotal: parseFloat(selectedVariation.price) * 1, // Итоговая сумма
       ingredients: this.selectedIngredients, // Выбранные ингредиенты
     };
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
   
     console.log("Cart Item:", cartItem);
-    // Отправить cartItem в API
-    this.pizzasService.addToCart(cartItem).subscribe(
+    this.http.post("http://localhost:3000/cart/add-to-cart", cartItem,  {
+      headers: headers,
+      withCredentials: true // Убедитесь, что куки отправляются
+    }).subscribe(
       response => {
         console.log("Товар добавлен в корзину:", response);
       },
@@ -171,6 +179,10 @@ export class PizzaItemComponent {
         console.error("Ошибка при добавлении в корзину:", error);
       }
     );
+
+
+    
+    
   }
   
 }

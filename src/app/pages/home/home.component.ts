@@ -1,22 +1,17 @@
 import { Component } from '@angular/core';
-import { RequestService } from '../../services/request.service';
-import { environment } from '../../../environments/environment.prod';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PopupInfoComponent } from '../../components/popup-info/popup-info.component';
-import { CommonModule, NgIf } from '@angular/common';
 import { PizzasService } from '../../services/pizzas/pizzas.service';
-import { PizzaItemComponent } from '../../components/pizza-item/pizza-item.component';
-import { ProductItemComponent } from '../../components/product-item/product-item.component';
-import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
+import { ActivatedRoute } from '@angular/router';
+import { ToolbarComponent } from '../../compoenents/toolbar/toolbar.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-import { SheetComponent } from '../../components/sheet/sheet.component';
-
+import { CommonModule } from '@angular/common';
+import { PizzaItemComponent } from '../../compoenents/pizza-item/pizza-item.component';
+import { ProductItemComponent } from '../../compoenents/product-item/product-item.component';
+import { SheetComponent } from '../../compoenents/sheet/sheet.component';
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [PopupInfoComponent, NgIf, PizzaItemComponent,
-     CommonModule, ProductItemComponent, ToolbarComponent,
-     NgxSkeletonLoaderModule, SheetComponent],
+  imports: [ToolbarComponent, NgxSkeletonLoaderModule, CommonModule,
+    PizzaItemComponent, ProductItemComponent, SheetComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -38,14 +33,6 @@ export class HomeComponent {
   };
   isSheetOpen = false;
 
-  openSheet() {
-    this.isSheetOpen = true;
-  }
-
-  closeSheet() {
-    this.isSheetOpen = false;
-  }
-
   constructor(private pizzasService: PizzasService,
     private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
@@ -59,6 +46,7 @@ export class HomeComponent {
       }
     });
   }
+  
   ngOnInit(): void {
     this.pizzasService.getPizzas().subscribe(
       (data) => {
@@ -121,10 +109,16 @@ export class HomeComponent {
       }
     );
   }
-  logout(){
-    // console.log(56);
 
 
+  openSheet() {
+    this.isSheetOpen = true;
+    console.log('open');
+    
+  }
+
+  closeSheet() {
+    this.isSheetOpen = false;
   }
   changeCategory(value: any){
     console.log(value);

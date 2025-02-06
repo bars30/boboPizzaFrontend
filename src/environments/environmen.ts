@@ -1,39 +1,15 @@
-export const url = ' http://localhost:3000/';
+export const url = 'http://localhost:3000/';
 export const environment = {
- login: {
-    get: url + 'auth/login'
-  },
-  register: {
-    get: url + 'auth/register'
-  },
-  logout: {
-    get: url + 'auth/logout'
-  }, 
-  forgotPassword: {
-    get: url + 'password/forgot-password'
-  },
-  resetPassword: {
-    get: url + 'password/reset-password'
-  },
-  updateUserInfo: {
-      get: url + 'users/user/update/'
-  },
-  getPizzas:{
-      get: url + 'products/pizzas'
-  },
-  drinks: {
-      get: url + 'products/drinks'
-  },
-  desserts: {
-    get: url + 'products/desserts'
-  },
-  breakfasts: {
-    get: url + 'products/breakfasts'
-  },
-  snacks: {
-    get: url + 'products/snacks'
-  },
-  addToCart: {
-    get: url + 'cart/add-to-cart'
-  }
-}; 
+  login: url + 'auth/login',
+  register: url + 'auth/register',
+  logout: url + 'auth/logout',
+  forgotPassword: url + 'password/forgot-password',
+  resetPassword: url + 'password/reset-password',
+  updateUserInfo: url + 'users/user/update/',
+  getPizzas: url + 'products/pizzas',
+  drinks: url + 'products/drinks',
+  desserts: url + 'products/desserts',
+  breakfasts: url + 'products/breakfasts',
+  snacks: url + 'products/snacks',
+  addToCart: url + 'cart/add-to-cart'
+};
