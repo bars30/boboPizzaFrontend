@@ -210,7 +210,7 @@ export class PizzaItemComponent {
       item_id: selectedVariation.id, // ID вариации пиццы
       quantity: 1,
       price: this.totalPrice || parseFloat(selectedVariation.price), // Цена за 1 шт
-      subtotal: parseFloat(selectedVariation.price) * 1, // Итоговая сумма
+      subtotal: parseFloat(selectedVariation.price) * 1 || this.totalPrice * 1, // Итоговая сумма
       ingredients: this.selectedIngredients, // Выбранные ингредиенты
     };
     const headers = new HttpHeaders()

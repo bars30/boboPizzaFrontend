@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -11,11 +12,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductItemComponent {
   @Input() drink: any;
+  @Input() category : any;
   totalPrice = 0 ;
   imgUrl = "";
   selectedVolume: any;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     console.log(this.drink);
     
   }
@@ -63,7 +65,70 @@ export class ProductItemComponent {
 
 
   mouseover(){
-    console.log("mouseover");
+    // console.log("mouseover");
     // this.showIngredients = false;
+  }
+  addToCart(){
+    console.log(this.drink);
+    let itemId;
+    console.log("🥐!!this.drink.variations", this.drink.variations);
+    let cartItem: any = {};
+    if (!!this.drink.variations) {
+      console.log(this.drink.variations.length);
+      console.log(this.drink.variations.length == 1);
+      
+      if (this.drink.variations.length == 1) {
+        console.log(this.drink.variations[0]["id"]);
+        itemId = this.drink.variations[0]["id"];
+      } else {
+        this.drink.variations.find((item: any) => {
+          if (item.volume_ml == this.selectedVolume) {
+            console.log(item["id"]);
+            console.log("🪇",item);
+            itemId = item["id"];
+            
+          }
+        })
+      }
+      console.log(this.category);
+      
+       cartItem = {
+        // cart_id: 1,  // ID корзины (замени на актуальный)
+        category: this.category,
+        item_id: itemId, // ID вариации пиццы
+        quantity: 1,
+        price: this.totalPrice, // Цена за 1 шт
+        subtotal: this.totalPrice * 1, // Итоговая сумма
+      };
+      
+    } else {
+      console.log('elseee');
+      
+       cartItem = {
+        // cart_id: 1,  // ID корзины (замени на актуальный)
+        category: this.category,
+        // item_id: itemId, // ID вариации пиццы
+        quantity: 1,
+        price: this.drink.price, // Цена за 1 шт
+        subtotal: this.totalPrice * 1, // Итоговая сумма
+      };
+    }
+
+    // console.log(cartItem);
+        const headers = new HttpHeaders()
+            .set('Content-Type', 'application/json');
+      this.http.post("http://localhost:8000/cart/add-to-cart", cartItem,  {
+        headers: headers,
+        withCredentials: true // Убедитесь, что куки отправляются
+      }).subscribe(
+        response => {
+          console.log("Товар добавлен в корзину:", response);
+        },
+        error => {
+          console.error("Ошибка при добавлении в корзину:", error);
+        }
+      );
+    
+    
   }
 }

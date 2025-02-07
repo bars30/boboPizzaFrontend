@@ -97,16 +97,16 @@
      <app-pizza-item class="product-item" *ngFor="let product of pizzas" [pizza]="product"></app-pizza-item>
    </div> 
    <div class="product" *ngIf="this.showCategory.drinks">
-     <app-product-item class="product-item" *ngFor="let product of drinks" [drink]="product"></app-product-item>
+     <app-product-item [category]="'drinks'" class="product-item" *ngFor="let product of drinks" [drink]="product"></app-product-item>
    </div>
    <div class="product" *ngIf="this.showCategory.desserts">
-     <app-product-item class="product-item" *ngFor="let product of desserts" [drink]="product"></app-product-item>
+     <app-product-item [category]="'desserts'" class="product-item" *ngFor="let product of desserts" [drink]="product"></app-product-item>
    </div>
    <div class="product" *ngIf="this.showCategory.breakfasts">
-     <app-product-item class="product-item" *ngFor="let product of breakfasts" [drink]="product"></app-product-item>
+     <app-product-item [category]="'breakfasts'" class="product-item" *ngFor="let product of breakfasts" [drink]="product"></app-product-item>
    </div>
    <div class="product" *ngIf="this.showCategory.snacks">
-     <app-product-item class="product-item" *ngFor="let product of snacks" [drink]="product"></app-product-item>
+     <app-product-item [category]="'snacks'" class="product-item" *ngFor="let product of snacks" [drink]="product"></app-product-item>
 
    </div>
  </div>
