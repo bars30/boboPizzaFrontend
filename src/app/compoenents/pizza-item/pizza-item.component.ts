@@ -145,6 +145,55 @@ export class PizzaItemComponent {
     this.showIngredients = false;
   }
 
+  // addToCart() {
+  //   const selectedVariation = this.pizza.variations.find((v: { size_cm: number; crust_type: string; }) => 
+  //     v.size_cm === this.selectedSize && v.crust_type === this.selectedType
+  //   );
+  
+  //   if (!selectedVariation) {
+  //     console.error("Variation not found!");
+  //     return;
+  //   }
+  
+  //   const cartItem = {
+  //     // cart_id: 1,  // ID корзины (замени на актуальный)
+  //     category: "pizzas",
+  //     item_id: selectedVariation.id, // ID вариации пиццы
+  //     quantity: 1,
+  //     price: parseFloat(selectedVariation.price), // Цена за 1 шт
+  //     subtotal: parseFloat(selectedVariation.price) * 1, // Итоговая сумма
+  //     ingredients: this.selectedIngredients, // Выбранные ингредиенты
+  //   };
+  //   const headers = new HttpHeaders()
+  //     .set('Content-Type', 'application/json');
+  
+  //   console.log("Cart Item:", cartItem);
+  //   // this.http.post("http://localhost:8000/cart/add-to-cart", cartItem,  {
+  //   //   headers: headers,
+  //   //   withCredentials: true // Убедитесь, что куки отправляются
+  //   // }).subscribe(
+  //   //   response => {
+  //   //     console.log("Товар добавлен в корзину:", response);
+  //   //   },
+  //   //   error => {
+  //   //     console.error("Ошибка при добавлении в корзину:", error);
+  //   //   }
+  //   // );
+  //   fetch('http://localhost:8000/cart/add-to-cart', {
+  //     method: 'POST',
+  //     credentials: 'include',  // Важно!
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ pizzaId: 123 }),
+  // })
+  // .then(response => response.json())
+  // .then(data => console.log(data))
+  // .catch(error => console.error(error));
+  
+
+    
+    
+  // }
+
   addToCart() {
     const selectedVariation = this.pizza.variations.find((v: { size_cm: number; crust_type: string; }) => 
       v.size_cm === this.selectedSize && v.crust_type === this.selectedType
@@ -160,7 +209,7 @@ export class PizzaItemComponent {
       category: "pizzas",
       item_id: selectedVariation.id, // ID вариации пиццы
       quantity: 1,
-      price: parseFloat(selectedVariation.price), // Цена за 1 шт
+      price: this.totalPrice || parseFloat(selectedVariation.price), // Цена за 1 шт
       subtotal: parseFloat(selectedVariation.price) * 1, // Итоговая сумма
       ingredients: this.selectedIngredients, // Выбранные ингредиенты
     };
@@ -168,7 +217,7 @@ export class PizzaItemComponent {
       .set('Content-Type', 'application/json');
   
     console.log("Cart Item:", cartItem);
-    this.http.post("http://localhost:3000/cart/add-to-cart", cartItem,  {
+    this.http.post("http://localhost:8000/cart/add-to-cart", cartItem,  {
       headers: headers,
       withCredentials: true // Убедитесь, что куки отправляются
     }).subscribe(

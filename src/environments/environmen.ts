@@ -1,4 +1,4 @@
-export const url = 'http://localhost:3000/';
+export const url = 'http://localhost:8000/';
 export const environment = {
   login: url + 'auth/login',
   register: url + 'auth/register',
