@@ -7,10 +7,11 @@ import { CommonModule } from '@angular/common';
 import { PizzaItemComponent } from '../../compoenents/pizza-item/pizza-item.component';
 import { ProductItemComponent } from '../../compoenents/product-item/product-item.component';
 import { SheetComponent } from '../../compoenents/sheet/sheet.component';
+import { ToastComponent } from '../../compoenents/toast/toast.component';
 @Component({
   selector: 'app-home',
   imports: [ToolbarComponent, NgxSkeletonLoaderModule, CommonModule,
-    PizzaItemComponent, ProductItemComponent, SheetComponent
+    PizzaItemComponent, ProductItemComponent, SheetComponent, ToastComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -23,6 +24,8 @@ export class HomeComponent {
   breakfasts: any[] = [];
   snacks: any[] = [];
   showLoader: boolean = true;
+  showToast: boolean = false;
+  toasts: { id: number; message: string; type: string }[] = [];
 
   showCategory: { pizza: boolean; drinks: boolean, desserts: boolean, breakfasts: boolean, snacks: boolean } = {
     pizza: true,
@@ -115,6 +118,12 @@ export class HomeComponent {
     this.isSheetOpen = true;
     console.log('open');
     
+  }
+  showToastMessage() {
+    this.showToast = true;
+    setTimeout(() => {
+      this.showToast = false;
+    }, 2000);
   }
 
   closeSheet() {

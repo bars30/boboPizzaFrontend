@@ -1,18 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ToastComponent } from '../toast/toast.component';
 
 @Component({
   selector: 'app-product-item',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ToastComponent],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.css'
 })
 export class ProductItemComponent {
   @Input() drink: any;
   @Input() category : any;
+  @Output() showToast = new EventEmitter<any>();
   totalPrice = 0 ;
   imgUrl = "";
   selectedVolume: any;
@@ -123,6 +125,7 @@ export class ProductItemComponent {
       }).subscribe(
         response => {
           console.log("Товар добавлен в корзину:", response);
+          this.showToast.emit(true);
         },
         error => {
           console.error("Ошибка при добавлении в корзину:", error);

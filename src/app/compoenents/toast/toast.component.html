@@ -1,0 +1,5 @@
+<div *ngIf="message" class="toast-container" [ngClass]="type">
+ <img src="/assets/gif/success.gif" alt="">
+ <span>{{ message }}</span>
+ <button class="close-btn" (click)="removeToast()">✖</button>
+</div>
