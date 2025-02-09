@@ -118,15 +118,20 @@ export class ProductItemComponent {
     }
 
     console.log("🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇",cartItem);
-        const headers = new HttpHeaders()
+    let newCartItem = cartItem;
+    console.log("նախքան ուղարկելը🦧🦧🦧🦧🦧🦧🦧newCartItem", newCartItem);
+    newCartItem["category"] = this.category;
+    
+    const headers = new HttpHeaders()
             .set('Content-Type', 'application/json');
-      this.http.post("http://localhost:8000/cart/add-to-cart", cartItem,  {
+      this.http.post("http://localhost:8000/cart/add-to-cart", newCartItem,  {
         headers: headers,
         withCredentials: true // Убедитесь, что куки отправляются
       }).subscribe(
         response => {
           console.log(this.drink.name);
-          console.log("🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇",cartItem);
+          // console.log("🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇",cartItem);
+          console.log("ուղարկելՈՒՑ ՀԵՏՈ🦧🦧🦧🦧🦧🦧🦧newCartItem", newCartItem);
           console.log("Товар добавлен в корзину:", response);
           this.showToast.emit({message: true, title: this.drink.name});
         },
