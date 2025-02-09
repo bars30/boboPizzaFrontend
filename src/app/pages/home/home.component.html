@@ -2,11 +2,11 @@
  <app-toolbar (changedProductCategory)="changeCategory($event)" 
  (openSheetComp)="openSheet()"></app-toolbar>
 </div>
-<div class="carousel-cont">
+<!-- <div class="carousel-cont">
  <div class="container">
    <img src="/assets/07.png" alt="">
  </div>
-</div>
+</div> -->
 <!-- <div class="item">
  <ngx-skeleton-loader count="5" appearance="circle" />
 </div> -->
@@ -90,23 +90,24 @@
 <app-sheet [isOpen]="isSheetOpen" (closeSheet)="closeSheet()"></app-sheet>
 
 
-<app-toast *ngIf="showToast" [message]="'Добавлена в корзину!'" type="success"></app-toast>
+<app-toast [toasts]="toasts"></app-toast>
+
 <div class="cont">
  <div class="container">
    <div class="product" *ngIf="this.showCategory.pizza">
-     <app-pizza-item class="product-item" *ngFor="let product of pizzas" [pizza]="product"></app-pizza-item>
+     <app-pizza-item (showToast)="showToastMessage($event)" class="product-item" *ngFor="let product of pizzas" [pizza]="product"></app-pizza-item>
    </div> 
    <div class="product" *ngIf="this.showCategory.drinks">
-     <app-product-item (showToast)="showToastMessage()" [category]="'drinks'" class="product-item" *ngFor="let product of drinks" [drink]="product"></app-product-item>
+     <app-product-item (showToast)="showToastMessage($event)" [category]="'drinks'" class="product-item" *ngFor="let product of drinks" [drink]="product"></app-product-item>
    </div>
    <div class="product" *ngIf="this.showCategory.desserts">
-     <app-product-item (showToast)="showToastMessage()" [category]="'desserts'" class="product-item" *ngFor="let product of desserts" [drink]="product"></app-product-item>
+     <app-product-item (showToast)="showToastMessage($event)" [category]="'desserts'" class="product-item" *ngFor="let product of desserts" [drink]="product"></app-product-item>
    </div>
    <div class="product" *ngIf="this.showCategory.breakfasts">
-     <app-product-item (showToast)="showToastMessage()" [category]="'breakfasts'" class="product-item" *ngFor="let product of breakfasts" [drink]="product"></app-product-item>
+     <app-product-item (showToast)="showToastMessage($event)" [category]="'breakfasts'" class="product-item" *ngFor="let product of breakfasts" [drink]="product"></app-product-item>
    </div>
    <div class="product" *ngIf="this.showCategory.snacks">
-     <app-product-item (showToast)="showToastMessage()" [category]="'snacks'" class="product-item" *ngFor="let product of snacks" [drink]="product"></app-product-item>
+     <app-product-item (showToast)="showToastMessage($event)" [category]="'snacks'" class="product-item" *ngFor="let product of snacks" [drink]="product"></app-product-item>
 
    </div>
  </div>

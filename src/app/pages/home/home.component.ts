@@ -25,7 +25,8 @@ export class HomeComponent {
   snacks: any[] = [];
   showLoader: boolean = true;
   showToast: boolean = false;
-  toasts: { id: number; message: string; type: string }[] = [];
+  toasts: { id: number, message: string, type: 'success' | 'error' | 'info' }[] = [];
+  private toastCounter = 0; 
 
   showCategory: { pizza: boolean; drinks: boolean, desserts: boolean, breakfasts: boolean, snacks: boolean } = {
     pizza: true,
@@ -119,12 +120,53 @@ export class HomeComponent {
     console.log('open');
     
   }
-  showToastMessage() {
-    this.showToast = true;
+  // showToastMessage() {
+  //   this.showToast = true;
+  //   setTimeout(() => {
+  //     this.showToast = false;
+  //   }, 2000);
+  // }
+  // showToastMessage() {
+  //   const toastId = this.toastCounter++;
+  //   this.toasts.push({ id: toastId, message: 'Добавлена в корзину!', type: 'success' });
+
+  //   setTimeout(() => {
+  //     this.toasts = this.toasts.filter(toast => toast.id !== toastId);
+  //   }, 2000);
+  // }
+  // showToastMessage() {
+  //   const toastId = this.toastCounter++;
+  //   this.toasts.push({ id: toastId, message: 'Добавлена в корзину!', type: 'success' });
+
+  //   // Удаляем тост через 3 секунды
+  //   setTimeout(() => {
+  //     this.toasts = this.toasts.filter(toast => toast.id !== toastId);
+  //   }, 3000);
+  // }
+  showToastMessage(e: any) {
+    console.log("🥗", e);
+    
+    const toastId = this.toastCounter++;
+    
+    let type: 'success' | 'error' | 'info' = 'success'; // Указываем точный тип
+    let message = e.title +' добавлена в корзину!';
+
+    if (!e.message) {
+      type = 'error';
+      message = 'Не удалось добавить в корзину';
+    }
+    
+  
+    const newToast = { id: toastId, message: message, type: type as 'success' | 'error' | 'info' };
+  
+    this.toasts = [newToast, ...this.toasts]; // Добавляем в начало массива
+  
+    // Удаляем тост через 3 секунды
     setTimeout(() => {
-      this.showToast = false;
-    }, 2000);
+      this.toasts = this.toasts.filter(toast => toast.id !== toastId);
+    }, 1250);
   }
+  
 
   closeSheet() {
     this.isSheetOpen = false;

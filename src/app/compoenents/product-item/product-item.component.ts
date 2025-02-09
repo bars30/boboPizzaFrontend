@@ -124,10 +124,13 @@ export class ProductItemComponent {
         withCredentials: true // Убедитесь, что куки отправляются
       }).subscribe(
         response => {
+          console.log(this.drink.name);
+          
           console.log("Товар добавлен в корзину:", response);
-          this.showToast.emit(true);
+          this.showToast.emit({message: true, title: this.drink.name});
         },
         error => {
+          this.showToast.emit({message: false, title: this.drink.name});
           console.error("Ошибка при добавлении в корзину:", error);
         }
       );

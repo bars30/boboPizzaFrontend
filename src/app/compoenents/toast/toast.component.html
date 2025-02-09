@@ -1,5 +1,11 @@
-<div *ngIf="message" class="toast-container" [ngClass]="type">
- <img src="/assets/gif/success.gif" alt="">
- <span>{{ message }}</span>
- <button class="close-btn" (click)="removeToast()">✖</button>
+<div class="toast-wrapper">
+ <div *ngFor="let toast of toasts; let i = index" 
+      class="toast-container" 
+      [ngClass]="toast.type"
+      
+      >
+   <img src="/assets/gif/success.gif" alt="">
+   <span>{{ toast.message }}</span>
+   <button class="close-btn" (click)="removeToast(toast.id)">✖</button>
+ </div>
 </div>

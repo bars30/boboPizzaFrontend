@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PizzasService } from '../../services/pizzas/pizzas.service';
 import { environment } from '../../../environments/environmen';
@@ -14,7 +14,8 @@ import axios from 'axios';
   styleUrl: './pizza-item.component.css'
 })
 export class PizzaItemComponent {
-  @Input() pizza: any;
+  @Input() pizza: any; 
+  @Output() showToast = new EventEmitter<any>();
   ingredients: string = '';
   selectedSize = 30;
   selectedType = "традиционное"; //традиционное
@@ -223,9 +224,11 @@ export class PizzaItemComponent {
     }).subscribe(
       response => {
         console.log("Товар добавлен в корзину:", response);
+        this.showToast.emit({message: true, title: this.pizza.name});
       },
       error => {
         console.error("Ошибка при добавлении в корзину:", error);
+        this.showToast.emit({message: false, title: this.pizza.name});
       }
     );
 
