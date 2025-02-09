@@ -105,18 +105,19 @@ export class ProductItemComponent {
       
     } else {
       console.log('elseee');
+      console.log("🥗🥗🥗🥗🥗",this.drink);
       
        cartItem = {
         // cart_id: 1,  // ID корзины (замени на актуальный)
         category: this.category,
-        // item_id: itemId, // ID вариации пиццы
+        item_id: this.drink.id,
         quantity: 1,
         price: this.drink.price, // Цена за 1 шт
         subtotal: this.totalPrice * 1, // Итоговая сумма
       };
     }
 
-    // console.log(cartItem);
+    console.log("🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇",cartItem);
         const headers = new HttpHeaders()
             .set('Content-Type', 'application/json');
       this.http.post("http://localhost:8000/cart/add-to-cart", cartItem,  {
@@ -125,7 +126,7 @@ export class ProductItemComponent {
       }).subscribe(
         response => {
           console.log(this.drink.name);
-          
+          console.log("🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇🪇",cartItem);
           console.log("Товар добавлен в корзину:", response);
           this.showToast.emit({message: true, title: this.drink.name});
         },
