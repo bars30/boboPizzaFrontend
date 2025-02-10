@@ -13,11 +13,11 @@
    <div class="price-quantity-cont">
       <b>{{cartItem.subtotal || cartItem.price}}AMD</b>
       <div class="quantity-cont">
-         <button [disabled]="cartItem.quantity == 1">
+         <button [disabled]="cartItem.quantity == 1" (click)="changeQuantity(false)">
             <img src="/assets/icons/minus.png" alt="">
          </button>
          <p>{{cartItem.quantity}}</p>
-         <button>
+         <button (click)="changeQuantity(true)">
             <img src="/assets/icons/plus.png" alt="">
          </button>
       </div>

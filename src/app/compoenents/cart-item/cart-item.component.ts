@@ -40,4 +40,26 @@ export class CartItemComponent {
     );
     
   }
+
+
+  changeQuantity(value: boolean){
+    if (value) {
+      this.cartItem.quantity++;
+
+    } else {
+      this.cartItem.quantity--;
+    }
+    const body = { id: this.cartItem.id, quantity: this.cartItem.quantity }; // Ensure this.cartItem is defined
+    this.http.post("http://localhost:8000/cart/change-quantity", body, {
+      withCredentials: true // Ensure cookies are sent with the request
+    }).subscribe(
+      (response) => {
+        console.log("Cart item deleted successfully:", response);
+        this.deleteItemEvent.emit();
+      },
+      (error) => {
+        console.error("Error deleting cart item:", error);
+      }
+    );
+  }
 }

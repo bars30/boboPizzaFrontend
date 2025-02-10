@@ -46,7 +46,7 @@ export class SheetComponent {
         console.log("Cart data received:", response);
         this.cartData = response;  // Now cartData will have the correct type
         this.totalPrice = 0;
-        this.cartData.map((item: any) => this.totalPrice += parseInt(item.price));
+        this.cartData.map((item: any) => this.totalPrice += (parseInt(item.price) * item.quantity));
         console.log(this.cartData.length);
         
       },
