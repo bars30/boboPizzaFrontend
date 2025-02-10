@@ -18,7 +18,7 @@
  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
  transition: all 0.3s ease-in-out;
  z-index: 1001;
- padding: 20px;
+ padding: 20px 0;
 }
 
 .sheet.open {
@@ -33,4 +33,11 @@
  border: none;
  font-size: 24px;
  cursor: pointer;
+}
+h2 {
+ margin: 0 15px 10px;
+}
+.cart-cont {
+ height: 75%;
+ overflow-y: scroll;
 }

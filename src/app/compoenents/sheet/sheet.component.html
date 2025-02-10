@@ -2,6 +2,10 @@
 
 <div class="sheet" [class.open]="isOpen">
   <button class="close-btn" (click)="close()">×</button>
-  <h2>Are you sure?</h2>
-  <p>This action cannot be undone.</p>
+  <h2>{{this.cartData.length}} товаров на {{totalPrice}}AMD</h2>
+<div class="cart-cont">
+  <div *ngFor="let item of cartData; let i = index" >
+    <app-cart-item (deleteItemEvent)="fetchCartData()" [cartItem]="item"></app-cart-item>
+  </div>
+</div>
 </div>

@@ -1,0 +1,25 @@
+<div class="cart-item">
+<div class="cart-item-cont">
+   <p class="delete-icon" (click)="deleteItem()">x</p>
+ <img [src]="cartItem.image_url" alt="">
+ <div class="text-cont">
+  <h3>{{cartItem.pizza_name || cartItem.name || cartItem.drink}}</h3>
+    <p *ngIf="cartItem.size_cm">{{cartItem.size_cm}}см, {{cartItem.crust_type}} тесто</p>
+    <p *ngIf="cartItem.volume_ml">{{cartItem.volume_ml}}л</p>
+    <p *ngIf="cartItem.pieces">{{cartItem.pieces}}шт</p>
+ </div>
+</div>
+
+   <div class="price-quantity-cont">
+      <b>{{cartItem.subtotal || cartItem.price}}AMD</b>
+      <div class="quantity-cont">
+         <button [disabled]="cartItem.quantity == 1">
+            <img src="/assets/icons/minus.png" alt="">
+         </button>
+         <p>{{cartItem.quantity}}</p>
+         <button>
+            <img src="/assets/icons/plus.png" alt="">
+         </button>
+      </div>
+   </div>
+</div>
